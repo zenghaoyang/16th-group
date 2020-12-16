@@ -153,6 +153,10 @@ class Cameratime(QtWidgets.QMainWindow, two_Ui):
         else:
             self.btnopencamera2.setText("打开摄像头")
             self._timer.stop()
+        #实时刷新界面
+        QtWidgets.QApplication.processEvents()
+        #睡眠0.05秒
+        time.sleep(0.05)
     @QtCore.pyqtSlot()
     def _queryFrame(self):
         yolo = YOLO()
@@ -189,7 +193,47 @@ class Video(QtWidgets.QMainWindow, four_Ui):
     def __init__(self):
         super(Video, self).__init__()
         self.setupUi(self)
-
+        
+    def btnopenvideo_Clicked(self):
+        yolo = YOLO()
+        fname, _ = QFileDialog.getOpenFileName(self, '选择视频', 'video/', 'Video files(*.mp4 *.avi )')  # 从本地选一个视频文件
+        capture = cv2.VideoCapture(fname)
+        fps = 0.0
+        while True:
+            t1 = time.time()
+            # 读取某一帧
+            grabbed, frame = capture.read()
+            if not grabbed:
+                break
+            img_rows, img_cols, channels = frame.shape
+            bytesPerLine = channels * img_cols
+        # opencv读取的是BGR，格式转变，BGRtoRGB
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        # 转变成Image
+            frame = Image.fromarray(np.uint8(frame))
+        # 进行检测
+            frame = np.array(yolo.detect_image(frame))
+         # RGBtoBGR满足opencv显示格式
+            frame = cv2.cvtColor(frame,cv2.COLOR_RGB2BGR)
+            QImg = QImage(frame.data, img_cols, img_rows, bytesPerLine, QImage.Format_RGB888)
+            self.labresult4.setPixmap(QPixmap.fromImage(QImg).scaled(self.labresult4.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation))
+            fps  = (fps + (1. / (time.time() - t1))) / 2
+            print("FPS: %.2f" % (fps))
+            frame = cv2.putText(frame, "FPS: %.2f" % (fps), (0, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+            cv.cvtColor(frame, cv.COLOR_BGR2RGB, frame)    
+            QImg = QImage(frame.data, img_cols, img_rows, bytesPerLine, QImage.Format_RGB888)
+            self.labresult4.setPixmap(QPixmap.fromImage(QImg).scaled(self.labresult4.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation))
+            #实时刷新界面
+            QtWidgets.QApplication.processEvents()
+            #睡眠0.05秒
+            time.sleep(0.05)
+            #if writer is None:
+                #fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+                #writer = cv2.VideoWriter(fname.split('.')[0] + '_result.mp4', fourcc, 30, (frame.shape[1], frame.shape[0]), True)
+            #writer.write(frame)
+        #writer.release()
+        #capture.release()
+        
 # 利用一个控制器来控制页面的跳转
 class Controller:
     def __init__(self):
