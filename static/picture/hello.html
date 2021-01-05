@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Expires" content="0">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-control" content="no-cache">
+	<meta http-equiv="Cache" content="no-cache">
+	<meta name="viewport"  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="bootstrap/4.1.3/css/bootstrap.css" />
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+         .content{
+            width:80%;
+            height:80%;
+            /* border: 1px rgb(0, 20, 17) solid; */
+            margin: 50px auto;
+            text-align: center;
+            background-color:rgba(0, 20, 17,0.5);
+        }
+
+        .title{
+            
+            padding: 30px;
+            /* border: 1px rgb(7, 123, 231) solid; */
+            font-size:larger;
+            color: aliceblue;
+            
+            
+        }
+
+        .divChoose{
+            padding-top: 50px;
+            /* border: 1px rgb(1, 17, 32) solid; */
+        }
+
+        .submit{
+            padding-top: 50px;
+            /* border: 1px rgb(1, 17, 32) solid; */
+        }
+
+
+        .divimg{
+            
+           
+            /* border: 3px solid darkgoldenrod; */
+           
+        }
+        #myimg{
+            width:350px;
+            height:350px;
+           
+        }
+        .mybtn{
+            width:100px;
+            height:30px;
+            display:inline-block;
+            background-color:rgb(23, 139, 192);
+            border:1px solid rgb(23, 139, 192);
+            border-radius:3px;
+            color:white;
+            font-size:14px;
+            font-family:微软雅黑;
+            cursor:pointer;
+            text-align:center;
+            vertical-align: center;
+            box-shadow:0px 0px 2px 2px rgb(23, 139, 192);
+        }
+        .mybtn:hover{
+            background-color:rgb(5, 80, 131);
+            border-color:rgb(5, 80, 131);
+            color:white;
+            text-decoration:none;
+        }
+
+        .submitBtn{
+            width:100px;
+            height:30px;
+            display:inline-block;
+            background-color:rgb(23, 139, 192);
+            border:1px solid rgb(23, 139, 192);
+            border-radius:3px;
+            color:white;
+            font-size:14px;
+            font-family:微软雅黑;
+            cursor:pointer;
+            text-align:center;
+            vertical-align: center;
+            box-shadow:0px 0px 2px 2px rgb(23, 139, 192);
+        }
+        .submitBtn:hover{
+            background-color:rgb(5, 80, 131);
+            border-color:rgb(5, 80, 131);
+            color:white;
+            text-decoration:none;
+        }
+        .deleteImg{
+            
+            width:100px;
+            height:30px;
+            display:inline-block;
+            background-color:rgb(23, 139, 192);
+            border:1px solid rgb(23, 139, 192);
+            border-radius:3px;
+            color:white;
+            font-size:14px;
+            font-family:微软雅黑;
+            cursor:pointer;
+            text-align:center;
+            vertical-align: center;
+            box-shadow:0px 0px 2px 2px rgb(23, 139, 192);
+        } 
+        .deleteImg:hover{
+            background-color:rgb(5, 80, 131);
+            border-color:rgb(5, 80, 131);
+            color:white;
+            text-decoration:none;
+        }
+        /* .mybtn{
+            
+            width:100px;
+            height:30px;
+            display:inline-block;
+            background-color:rgb(91,183,91);
+            border:1px solid rgb(91,183,91);
+            border-radius:3px;
+            color:white;
+            font-size:14px;
+            font-family:微软雅黑;
+            cursor:pointer;
+            text-align:center;
+            vertical-align: center;
+            box-shadow:0px 0px 2px 2px rgb(58, 168, 58);
+        }
+
+        .submit{
+            padding-top:15px;
+            margin-right:20%;
+            border: 1px solid darkgoldenrod;
+        }  */
+
+        /* .title{
+           
+            border: 1px solid darkgoldenrod;
+        }
+        .file{
+            border: 1px solid  rgb(26, 8, 1);
+         
+           
+            
+        }
+        .submit{
+            padding-top:15px;
+            margin-right:20%;
+            border: 1px solid darkgoldenrod;
+        }
+        .submitBtn{
+            width:100px;
+            height:30px;
+            display:inline-block;
+            background-color:rgb(91,183,91);
+            border:1px solid rgb(91,183,91);
+            border-radius:3px;
+            color:white;
+            font-size:14px;
+            font-family:微软雅黑;
+            cursor:pointer;
+            text-align:center;
+            vertical-align: center;
+            box-shadow:0px 0px 2px 2px rgb(58, 168, 58);
+        }
+        .submitBtn:hover{
+            background-color:rgb(91,160,91);
+            border-color:rgb(91,160,91);
+            color:white;
+            text-decoration:none;
+        }
+
+
+        .fileBtn{
+            
+        }
+        .mybtn{
+            width:100px;
+            height:30px;
+            display:inline-block;
+            background-color:rgb(91,183,91);
+            border:1px solid rgb(91,183,91);
+            border-radius:3px;
+            color:white;
+            font-size:14px;
+            font-family:微软雅黑;
+            cursor:pointer;
+            text-align:center;
+            vertical-align: center;
+            box-shadow:0px 0px 2px 2px rgb(58, 168, 58);
+        }
+        .mybtn:hover{
+            background-color:rgb(91,160,91);
+            border-color:rgb(91,160,91);
+            color:white;
+            text-decoration:none;
+        }
+        .myinp{
+
+            width:100px;
+            height:30px;
+            display:inline-block;
+            border:1px solid rgb(209,232,250);
+            border-radius:2px;
+        }
+        #div4bm{
+            border: 1px solid darkgoldenrod;
+            padding-top:15px;
+            margin-right:15px;
+            position: absolute;
+             width: 30%; 
+             height: 60%; 
+            
+            
+        }
+       
+        
+        #mybutton{
+            margin-left:100px;
+        }
+        
+        .divimg{
+            
+           
+            border: 3px solid darkgoldenrod;
+           
+        }
+        #myimg{
+            width:350px;
+            height:350px;
+           
+        }
+        .deleteImgDiv{
+            
+            border: 3px solid darkgoldenrod;
+           
+        } */
+    </style>
+    <script>
+        // window.onload=function(){
+        //     var fileBtnEle=document.getElementsByClassName("fileBtn");
+        //     //alert(fileBtnEle);
+        //     function showImg(){
+        //     // var img_file =  $("#img_file").val();
+        //     var file =  document.getElementById('img_file').files[0];
+        //     var re = new FileReader();
+        //     re.readAsDataURL(file);
+        //     re.onload = function(re){
+        //         $('#img_id').attr("src", re.target.result);
+        //     }
+        // }
+
+        function Id(id){
+            return document.getElementById(id);
+        }
+        function changeToop(){
+            var file = Id("file");
+            if(file.value==''){
+                //设置默认图片
+            Id("myimg").src='./picture/zanwu.jpg';
+            }
+            else{
+                preImg("file","myimg");
+            }
+        }
+        //获取input[file]图片的url Important
+        function getFileUrl(fileId) {
+            var url;
+            var file = Id(fileId);
+            var agent = navigator.userAgent;
+            if (agent.indexOf("MSIE")>=1) {
+                url = file.value;
+            } 
+            else if(agent.indexOf("Firefox")>0) {
+                url = window.URL.createObjectURL(file.files.item(0));
+            } 
+            else if(agent.indexOf("Chrome")>0) {
+                url = window.URL.createObjectURL(file.files.item(0));
+            }
+            return url;
+        }
+        //读取图片后预览
+        function preImg(fileId,imgId) {
+            var imgPre =Id(imgId);
+            imgPre.src = getFileUrl(fileId);
+        }
+        window.onload=function(){
+            Id("myimg").src='./picture/zanwu.jpg';
+            var delImgEle=Id("delImg");
+            delImgEle.onclick=function(){
+                var file=Id("file");
+                Id("myimg").src='./picture/zanwu.jpg';
+                imgPre.src='./picture/zanwu.jpg';
+            }
+            var video = document.getElementById('video');
+            if (navigator.mediaDevices.getUserMedia) {
+                //最新的标准API
+                navigator.mediaDevices.getUserMedia({video : {width: 1000, height: 1000}}).then(success).catch(error);
+            } else if (navigator.webkitGetUserMedia) {
+                //webkit核心浏览器
+                navigator.webkitGetUserMedia({video : {width: 1000, height: 1000}},success, error)
+            } else if (navigator.mozGetUserMedia) {
+                //firfox浏览器
+                navigator.mozGetUserMedia({video : {width: 1000, height: 1000}}, success, error);
+            } else if (navigator.getUserMedia) {
+                //旧版API
+                navigator.getUserMedia({video : {width: 1000, height: 1000}}, success, error);
+            }
+
+            function success(stream) {
+                //兼容webkit核心浏览器
+                // let CompatibleURL = window.URL || window.webkitURL;
+
+                //将视频流设置为video元素的源
+                console.log(stream);
+
+                //video.src = CompatibleURL.createObjectURL(stream);
+                video.srcObject = stream;
+                video.play();
+            }
+
+            function error(error) {
+                console.log(`访问用户媒体设备失败${error.name}, ${error.message}`);
+            }
+        }    
+    </script>
+
+    <!-- <script src="http://cdn.loveqiao.com/jquery.js"></script> -->
+   
+ <style>
+        .vid{
+            width: 350px;
+            height: auto;
+            
+            position: relative;
+            margin:10px auto;
+            background-color: aquamarine;
+            display: block;
+        }
+    </style>
+</head>
+<body background="./picture/img.jpg">
+    
+    <!-- <div>运行在您浏览器里面的口罩识别</div> -->
+    
+
+   
+
+    <div class="content" >
+       
+        <div class="title">口罩检测识别</div>
+
+        <!--图片展示区域-->
+        <div  class="divimg">
+            <!--设置默认图片-->
+            <img id="myimg" src=""/>
+           
+        </div>
+
+        <div class="divimg">
+            <video id="video" class="vid"></video>
+            
+        </div>
+
+        <div id="div4bm" class="divChoose">
+            <!--input[button] 触发 file click事件-->
+            <input type="button" value="选择文件" id="mybutton" class="mybtn" onclick="Id('file').click();" />
+            <!--file 隐藏起来 触发onchange事件-->
+            <input type="file" name="file" accept="image/png,image/jpg,image/jpeg" id="file" onchange="changeToop();" style="display: none;" />
+            <input type="button" value="识别" class="submitBtn">
+            <input type="button" value="清除图片" class="deleteImg" id="delImg">
+        </div>
+    
+		
+    </div>
+
+
+    
+
+   
+
+</body>
+</html>
